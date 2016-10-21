@@ -24,6 +24,12 @@ export class AppComponent {
   }
 
   ngOnInit() {
+    //noinspection TypeScriptUnresolvedFunction
+    (<any> $('.button-collapse')).sideNav({
+      menuWidth: 150, // Default is 240
+      edge: 'left',
+      closeOnClick: true
+    });
     console.log('Initial App State', this.appState.state);
   }
 

@@ -24,7 +24,7 @@ const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
  */
 const HMR = helpers.hasProcessFlag('hot');
 const METADATA = {
-  title: 'Crypto-chat',
+  title: 'CryptoChat',
   baseUrl: '/',
   isDevServer: helpers.isWebpackDevServer()
 };
@@ -143,6 +143,14 @@ module.exports = function (options) {
           test: /\.(jpg|png|gif)$/,
           loader: 'file'
         },
+        {
+          test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+          loader: "url-loader?limit=10000&minetype=application/font-woff"
+        },
+        {
+          test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+          loader: "file-loader"
+        },
 
       ],
 
@@ -153,6 +161,9 @@ module.exports = function (options) {
      *
      * See: http://webpack.github.io/docs/configuration.html#plugins
      */
+    // externals: {
+    //   jquery: 'jQuery'
+    // },
     plugins: [
       new AssetsPlugin({
         path: helpers.root('dist'),

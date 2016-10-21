@@ -1,8 +1,20 @@
-html, body{
+html, body {
   height: 100%;
   font-family: Arial, Helvetica, sans-serif
 }
 
 span.active {
   background-color: gray;
+}
+
+.nav-wrapper {
+  padding-left: 15px;
+}
+
+.room {
+  cursor: pointer;
+}
+
+.room:hover {
+  background-color: #f8f8f8;
 }
