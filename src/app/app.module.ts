@@ -1,6 +1,6 @@
 import { NgModule, ApplicationRef } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
@@ -21,12 +21,14 @@ import { NoContentComponent } from './no-content';
 import { RoomsComponent } from './room';
 import { RoomService } from './shared/room.service';
 import { RoomDetailComponent } from './room/room-detail';
+import { ConnectComponent } from './room/connect';
 
 // Application wide providers
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
   AppState,
-  RoomService
+  RoomService,
+  FormBuilder,
 ];
 
 type StoreType = {
@@ -46,11 +48,13 @@ type StoreType = {
     HomeComponent,
     NoContentComponent,
     RoomsComponent,
-    RoomDetailComponent
+    RoomDetailComponent,
+    ConnectComponent
   ],
   imports: [ // import Angular's modules
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     RouterModule.forRoot(ROUTES, { useHash: true }),
     MomentModule
